@@ -14,6 +14,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { PageListComponent } from './page-list/page-list.component';
 import { FormsModule } from '@angular/forms';
 import { DetailComponent } from './detail/detail.component';
+import { DialogComponent } from './component/dialog/dialog.component';
+import { ModalModule } from 'ng-devui/modal';
+import { TabsModule } from 'ng-devui/tabs';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,7 @@ import { DetailComponent } from './detail/detail.component';
     TopComponent,
     PageListComponent,
     DetailComponent,
+    DialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,6 +38,8 @@ import { DetailComponent } from './detail/detail.component';
     BrowserAnimationsModule,
     DevUIModule,
     FormsModule,
+    ModalModule,
+    TabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
