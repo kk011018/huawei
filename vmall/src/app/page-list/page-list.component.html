@@ -1,0 +1,44 @@
+  <app-top></app-top>
+  <div class="max-w-[1226px] m-auto ">
+    <d-breadcrumb class="flex mt-6">
+      <d-breadcrumb-item>
+        <a routerLink="/home">首页</a>
+      </d-breadcrumb-item>
+      <d-breadcrumb-item>
+        <a routerLink="/list">列表页</a>
+      </d-breadcrumb-item>
+    </d-breadcrumb>
+    <div class="w-auto bg-white p-6 mt-6 text-[12px]">
+      <div class="flex mb-6">
+        <div class="w-[150px] text-gray-400">分类：</div>
+        <div class="text-red-600 font-bold">Mate系列</div>
+      </div>
+      <div class="flex mb-6">
+        <div class="w-[150px] text-gray-400">服务优惠：</div>
+        <div>仅看有货</div>
+      </div>
+      <div class="flex">
+        <div class="w-[150px] text-gray-400">排序：</div>
+        <div class="w-[150px]">综合</div>
+        <div class="w-[150px]">最新</div>
+        <div class="w-[150px]">评论数</div>
+        <div class="w-[30px]">价格</div>
+        <div class="flex relative">
+          <input class="z-10 mx-2 w-[60px] border-0 outline-none bg-gray-100 border-gray-400 p-1 hover:outline-none"
+            type="text">
+          <span class="z-10">——</span>
+          <input class="z-10 mx-2 w-[60px] border-0 outline-none bg-gray-100 border-gray-400 p-1 hover:outline-none"
+            type="text">
+          <div
+            class=" border-2 w-[200px] h-[100px] opacity-0 hover:opacity-100 hover:shadow-2xl hover:bg-gray-50 absolute -top-5">
+            <button type="button" class="absolute bottom-3 left-5 w-[65px] border-0 rounded-[20px] h-[30px]">清除</button>
+            <button type="button"
+              class="text-white absolute bottom-3 right-5 w-[65px] border-0 rounded-[20px] h-[30px] bg-red-500">确定</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <app-list></app-list>
+  </div>
+  <app-bottom></app-bottom>
