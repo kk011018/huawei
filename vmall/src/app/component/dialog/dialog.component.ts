@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-dialog',
@@ -6,17 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './dialog.component.css'
 })
 export class DialogComponent {
-  // @Input() data: any;
-  // @Input()
-  // handler!: Function;
-
-  // close($event: any) {
-  //   this.handler($event);
-  // }
-
-  tabActiveId: string | number = 'tab2';
-
-  activeTabChange(tab: any) {
-    console.log(tab);
-  }
+  
 }

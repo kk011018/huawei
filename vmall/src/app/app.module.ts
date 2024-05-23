@@ -16,7 +16,8 @@ import { FormsModule } from '@angular/forms';
 import { DetailComponent } from './detail/detail.component';
 import { DialogComponent } from './component/dialog/dialog.component';
 import { ModalModule } from 'ng-devui/modal';
-import { TabsModule } from 'ng-devui/tabs';
+import { RadioModule } from 'ng-devui/radio';
+import { Dialog2Component } from './component/dialog2/dialog2.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { TabsModule } from 'ng-devui/tabs';
     PageListComponent,
     DetailComponent,
     DialogComponent,
+    Dialog2Component,
   ],
   imports: [
     BrowserModule,
@@ -39,7 +41,7 @@ import { TabsModule } from 'ng-devui/tabs';
     DevUIModule,
     FormsModule,
     ModalModule,
-    TabsModule
+    RadioModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

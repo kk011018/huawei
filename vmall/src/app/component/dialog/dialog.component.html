@@ -1,17 +1,31 @@
-<div class="modal-test-component">
-  <!-- Modal Content
-  <div>name: {{ data.name }}</div>
-  <div>age: {{ data.age }}</div>
-  <div>address: {{ data.address }}</div> -->
-  <d-tabs [type]="'tabs'" [(activeTab)]="tabActiveId" (activeTabChange)="activeTabChange($event)">
-    <d-tab id="tab1" title="Tab1">
-      <p>Tab1 Content</p>
-    </d-tab>
-    <d-tab id="tab2" title="Tab2">
-      <p>Tab2 Content</p>
-    </d-tab>
-    <d-tab id="tab3" title="Tab3">
-      <p>Tab3 Content</p>
-    </d-tab>
-  </d-tabs>
+<div class="modal-test-component flex flex-col items-center">
+  <div class="flex justify-evenly mt-6 w-[50%]">
+    <div class="text-[22px] text-red-600 hover:cursor-pointer border-0 border-solid border-b-2 border-red-600 pb-3">
+      花呗分期</div>
+    <div class="text-[20px] hover:text-red-600 hover:cursor-pointer">掌上生活分期</div>
+  </div>
+  <div class="w-[90%] p-3">
+    <d-radio class="pt-3" [name]="'fenqi'" [value]="'3'">
+      <span class="text-[16px]">3期</span>
+      <span class="ml-3 text-[16px]">￥1899.67×3</span>
+      <div class="ml-7 text-[16px] text-red-600">0分期利息</div>
+    </d-radio>
+    <d-radio class="pt-3" [name]="'fenqi'" [value]="'6'">
+      <span class="text-[16px]">6期</span>
+      <span class="ml-3 text-[16px]">￥992.58×6</span>
+      <div class="ml-7 text-[16px] text-gray-500">含分期利息：¥42.74/期，分期利率：4.5%</div>
+    </d-radio>
+    <d-radio class="pt-3" [name]="'fenqi'" [value]="'12'">
+      <span class="text-[16px]">3期</span>
+      <span class="ml-3 text-[16px]">￥510.54×12</span>
+      <div class="ml-7 text-[16px] text-gray-500">含分期利息：¥35.62/期，分期利率：7.5%</div>
+    </d-radio>
+  </div>
+  <div class="w-[90%] p-3">
+    <div class="text-[18px] text-black mb-2">花呗分期是什么？</div>
+    <div class="leading-6">花呗分期是蚂蚁集团推出的消费金融产品，用户在华为商城购物时使用花呗分期付款，用户分期偿还花呗。</div>
+  </div>
+  <div class="w-[90%] p-3">
+    0分期利息活动适用于单款商品订单，含多款商品订单仅在活动一致时可享用。
+  </div>
 </div>

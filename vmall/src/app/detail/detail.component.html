@@ -15,9 +15,12 @@
         <a routerLink="/detail">{{title}} {{banben}} {{color}}</a>
       </d-breadcrumb-item>
     </d-breadcrumb>
-    <div class="border border-solid p-2 flex">
-      <img class="w-[50%]" src="../../assets/img/aa.jpg" alt="">
-      <div class="border-solid border w-[50%] p-2">
+    <div class=" p-2 flex">
+      <img id="img" class="w-[500px] h-[500px]" src="../../assets/img/aa.jpg" alt="" (mousemove)="a($event)">
+      <div class="box">
+        <img id="aaa" class="w-[1500px] h-[1500px]" src="../../assets/img/aa.jpg" alt="">
+      </div>
+      <div class="w-[50%] p-2">
         <div class="text-[24px] mb-4">{{title}} {{banben}} {{color}}</div>
         <div class="text-[14px] leading-6">
           <span class="text-red-600">①直降活动时间5月15日00:00-5月31日23:59 ②整点下单前30件赠价值299元华为氮化镓充电器，限10点/16点/20点，查看活动详情>></span>
@@ -28,11 +31,51 @@
           <span class="text-[30px] mr-2">￥{{newprice}}</span>
           <span class="text-[20px] text-gray-400  line-through">￥{{oldprice}}</span>
         </div>
-        <div class="mt-3 hover:cursor-pointer" (click)="openDialog()">
+        <div class="mt-3 hover:cursor-pointer" (click)="openDialog1()">
           花呗/掌上生活分期直购，最高可享
           <span class="text-red-600">3期</span>
           0分期利息
           <span class="text-[18px] text-gray-400">></span>
+        </div>
+        <div class="mt-4">
+          <div class="text-[20px]">版本</div>
+          <div class="grid grid-cols-2 p-3">
+            <div (click)="selectBanben(item)" *ngFor="let item of banbenArr"
+              class="m-2 p-2 text-[18px] h-[30px] border border-gray-400 border-solid rounded-md text-center hover:border-red-600 hover:cursor-pointer hover:text-red-600">
+              {{item}}</div>
+          </div>
+        </div>
+        <div class="mt-4">
+          <div class="text-[20px]">颜色</div>
+          <div class="grid grid-cols-2 p-3">
+            <div (click)="selectColor(item)" *ngFor="let item of colorArr"
+              class="m-2 p-2 text-[18px] h-[30px] border border-gray-400 border-solid rounded-md text-center hover:border-red-600 hover:cursor-pointer hover:text-red-600">
+              <img class="w-[22px] h-[22px]" src="../../assets/img/aa.jpg" alt="">
+              {{item}}</div>
+          </div>
+        </div>
+        <div class="text-gray-600">
+          <span>已选：</span>
+          <span class="mr-2">{{banben}}</span>
+          <span class="mr-2">{{color}}</span>
+          <span>全款购买 ✖{{shuliang}}</span>
+        </div>
+        <div class="flex items-center mt-6">
+          <div (click)="reduce()"
+            class="mr-4 w-[30px] h-[30px] text-[22px] border border-gray-700 border-solid rounded-[50%] text-center hover:cursor-pointer">
+            -
+          </div>
+          {{shuliang}}
+          <div (click)="add()"
+            class="ml-4 w-[30px] h-[30px] text-[22px] border border-gray-700 border-solid rounded-[50%] text-center hover:cursor-pointer">
+            +
+          </div>
+          <div (click)="openDialog2()"
+            class="bg-[#FFA349] text-white rounded-full p-4 ml-4 w-[130px] text-center text-[20px] hover:cursor-pointer">
+            加入购物车</div>
+          <div
+            class="bg-[#F8503F] text-white rounded-full p-4 ml-4 w-[130px] text-center text-[20px] hover:cursor-pointer">
+            立即购买 </div>
         </div>
       </div>
     </div>
