@@ -1,6 +1,6 @@
 <div class="bg-white">
   <app-top></app-top>
-  <div class="max-w-[1226px] m-auto ">
+  <div class="max-w-[1226px] m-auto " *ngFor="let item of [data]">
     <d-breadcrumb class="flex mt-6 mb-6">
       <d-breadcrumb-item>
         <a routerLink="/home">首页</a>
@@ -12,24 +12,23 @@
         <a routerLink="/detail">详情页</a>
       </d-breadcrumb-item>
       <d-breadcrumb-item>
-        <a routerLink="/detail">{{title}} {{banben}} {{color}}</a>
+        <a routerLink="/detail">{{item.title}} {{banben}} {{color}}</a>
       </d-breadcrumb-item>
     </d-breadcrumb>
-    <div class=" p-2 flex">
-      <img id="img" class="w-[500px] h-[500px]" src="../../assets/img/aa.jpg" alt="" (mousemove)="a($event)">
+    <div class=" p-2 flex" *ngFor="let item of [data]">
+      <img id="img" class="w-[500px] h-[500px]" src={{item.photo}} alt="" (mousemove)="a($event)">
       <div class="box">
-        <img id="aaa" class="w-[1500px] h-[1500px]" src="../../assets/img/aa.jpg" alt="">
+        <img id="aaa" class="w-[1500px] h-[1500px]" src={{item.photo}} alt="">
       </div>
       <div class="w-[50%] p-2">
-        <div class="text-[24px] mb-4">{{title}} {{banben}} {{color}}</div>
+        <div class="text-[24px] mb-4">{{item.title}} {{banben}} {{color}}</div>
         <div class="text-[14px] leading-6">
           <span class="text-red-600">①直降活动时间5月15日00:00-5月31日23:59 ②整点下单前30件赠价值299元华为氮化镓充电器，限10点/16点/20点，查看活动详情>></span>
           "WiFi 12GB+256GB 晶钻白（升级HarmonyOS 4.2版本即可支持华为天生会画App）"享镌刻服务，限APP端（HarmonyOS/安卓版）参与
         </div>
         <div class="mt-6 text-red-700 flex items-center">
           <span class="bg-red-200 p-1 rounded-lg text-red-700 h-[20px] mr-2">限时特惠</span>
-          <span class="text-[30px] mr-2">￥{{newprice}}</span>
-          <span class="text-[20px] text-gray-400  line-through">￥{{oldprice}}</span>
+          <span class="text-[30px] mr-2">￥{{item.spec}}</span>
         </div>
         <div class="mt-3 hover:cursor-pointer" (click)="openDialog1()">
           花呗/掌上生活分期直购，最高可享

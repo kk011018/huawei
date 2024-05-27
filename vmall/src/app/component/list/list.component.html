@@ -4,55 +4,21 @@
     <div class="link">更多&gt;</div>
   </div>
   <div class="detail-box">
-    <div routerLink="/detail" class="list-details" *ngFor="let item of listData">
+    <div routerLink="/detail/{{item.id}}" class="list-details" *ngFor="let item of Data.listData">
       <div class="img-box text-center">
-        <img class="pt-6" src="../../../assets/img/01.png" alt="">
+        <img class="pt-6" src={{item.photo}} alt="">
       </div>
       <div class="text-box">
-        <div class="name">{{item.goods_name}}</div>
+        <div class="name">{{item.title}}</div>
         <div class="tag">{{item.goods_spec}}</div>
-        <div class="price">￥{{item.price}}</div>
+        <div class="price">￥{{item.spec}}</div>
       </div>
     </div>
-    <div class="list-details" *ngFor="let item of listData">
-      <div class="img-box text-center">
-        <img class="pt-6" src="../../../assets/img/01.png" alt="">
-      </div>
-      <div class="text-box">
-        <div class="name">{{item.goods_name}}</div>
-        <div class="tag">{{item.goods_spec}}</div>
-        <div class="price">￥{{item.price}}</div>
-      </div>
-    </div>
-    <div class="list-details" *ngFor="let item of listData">
-      <div class="img-box text-center">
-        <img class="pt-6" src="../../../assets/img/01.png" alt="">
-      </div>
-      <div class="text-box">
-        <div class="name">{{item.goods_name}}</div>
-        <div class="tag">{{item.goods_spec}}</div>
-        <div class="price">￥{{item.price}}</div>
-      </div>
-    </div>
-    <div class="list-details" *ngFor="let item of listData">
-      <div class="img-box text-center">
-        <img class="pt-6" src="../../../assets/img/01.png" alt="">
-      </div>
-      <div class="text-box">
-        <div class="name">{{item.goods_name}}</div>
-        <div class="tag">{{item.goods_spec}}</div>
-        <div class="price">￥{{item.price}}</div>
-      </div>
-    </div>
-    <div class="list-details" *ngFor="let item of listData">
-      <div class="img-box text-center">
-        <img class="pt-6" src="../../../assets/img/01.png" alt="">
-      </div>
-      <div class="text-box">
-        <div class="name">{{item.goods_name}}</div>
-        <div class="tag">{{item.goods_spec}}</div>
-        <div class="price">￥{{item.price}}</div>
-      </div>
-    </div>
+  </div>
+  <div>
+    <d-pagination (pageIndexChange)="pageIndexChange($event)" [size]="'sm'" [total]="Data.totalCount"
+      [(pageSize)]="pager.pageSize" [(pageIndex)]="pager.pageIndex" [canViewTotal]="true" [canChangePageSize]="true"
+      [maxItems]="5">
+    </d-pagination>
   </div>
 </div>

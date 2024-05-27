@@ -14,16 +14,33 @@ type response = {
 })
 export class ListComponent {
 
-  listData: any = { data: [] };
+  pager = {
+    total: 0,
+    pageIndex: 1,
+    pageSize: 4
+  };
+
+  Data: any = { listData: [] };
+
+  obj: any = [];
 
   constructor(private http: HttpClient) {
-    this.getAllList();
+
   }
 
   getAllList() {
-    this.http.get('http://localhost:3000/goodsInfo/getGoodsList').subscribe((res) => {
+    this.http.get(`http://localhost:3000/detailInfo/getListByPage/${this.pager.pageIndex}`).subscribe((res) => {
       console.log(res);
-      this.listData = res;
+      this.Data = res;
     })
+  }
+
+  pageIndexChange(pageIndex: any) {
+    this.pager.pageIndex = pageIndex;
+    this.getAllList();
+  }
+
+  ngOnInit() {
+    this.getAllList();
   }
 }

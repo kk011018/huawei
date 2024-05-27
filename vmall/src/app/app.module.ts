@@ -18,6 +18,9 @@ import { DialogComponent } from './component/dialog/dialog.component';
 import { ModalModule } from 'ng-devui/modal';
 import { RadioModule } from 'ng-devui/radio';
 import { Dialog2Component } from './component/dialog2/dialog2.component';
+import { PaginationModule } from 'ng-devui/pagination';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { InputNumberModule } from 'ng-devui';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,7 @@ import { Dialog2Component } from './component/dialog2/dialog2.component';
     DetailComponent,
     DialogComponent,
     Dialog2Component,
+    ShoppingCartComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +46,8 @@ import { Dialog2Component } from './component/dialog2/dialog2.component';
     FormsModule,
     ModalModule,
     RadioModule,
+    PaginationModule,
+    InputNumberModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

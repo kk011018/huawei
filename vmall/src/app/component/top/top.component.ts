@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-top',
@@ -6,5 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './top.component.css'
 })
 export class TopComponent {
+
+
 
 }

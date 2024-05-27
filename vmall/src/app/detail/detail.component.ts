@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { DialogService } from 'ng-devui/modal';
 import { DialogComponent } from '../component/dialog/dialog.component';
 import { Dialog2Component } from '../component/dialog2/dialog2.component';
+import { ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-detail',
@@ -17,6 +20,9 @@ export class DetailComponent {
   shuliang: number = 1;
   x: number = 0;
   y: number = 0;
+  param: any;
+  data: any = [];
+  obj: any = {}
 
   banbenArr: string[] = [
     "WiFi 12GB+256GB",
@@ -64,7 +70,8 @@ export class DetailComponent {
 
   $enent: any;
 
-  constructor(private dialogService: DialogService) { }
+  constructor(private dialogService: DialogService, private _activatedRoute: ActivatedRoute, private http: HttpClient
+  ) { }
 
   openDialog1(dialogtype?: string, showAnimation?: boolean) {
     const results = this.dialogService.open({
@@ -117,6 +124,23 @@ export class DetailComponent {
       ],
     });
     console.log(results.modalContentInstance);
+
+
+    this.obj = {
+      photo: this.data.photo,
+      shangpin: `${this.data.title}${this.banben}${this.color}`,
+      spec: this.data.spec,
+      shuliang: this.shuliang,
+    }
+
+    console.log(this.obj);
+
+    this.http.post(`http://localhost:3000/shoppingCartInfo/add`, this.obj).subscribe((res) => {
+      console.log(res);
+    })
+
+
+
   }
 
   selectBanben(item: string) {
@@ -144,4 +168,13 @@ export class DetailComponent {
     document.querySelector("#aaa")?.setAttribute("style", `--x:${this.x};--y:${this.y};`);
   }
 
+  ngOnInit() {
+    this.param = this._activatedRoute.snapshot.params;
+    console.log(this.param, 'param');
+    this.http.get(`http://localhost:3000/detailInfo/getDetailInfoById/${this.param.id}`).subscribe((res) => {
+      console.log(res);
+      this.data = res;
+      console.log(this.data);
+    })
+  }
 }

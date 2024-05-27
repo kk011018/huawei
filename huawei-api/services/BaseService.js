@@ -19,6 +19,8 @@ class BaseService extends DBUtils {
             spec_info: "spec_info",
             tag_info: "tag_info",
             user_info: "user_info",
+            shopping_cart_info: "shopping_cart_info",
+            detail_info: "detail_info",
         }
         this.currentTable = "";
     }
@@ -41,6 +43,8 @@ class BaseService extends DBUtils {
         let sql = `select * from ${this.currentTable} where is_del = false`;
         return this.executeSql(sql);
     }
+
+
     /**
      * 
      * @param {number} id 
@@ -90,8 +94,8 @@ class BaseService extends DBUtils {
     createQuery(tableName = this.currentTable) {
         const that = this;
         let obj = {
-            listSql: ` select ${tableName}.* `,
-            countSql: ` select count(*) total_count from ${tableName} where ${tableName}.is_del = false `,
+            listSql: ` select * `,
+            countSql: ` select count(*) 'total_count' `,
             from: ` from ${tableName} `,
             where: ` where ${tableName}.is_del = false `,
             pageIndex: 1,
@@ -173,8 +177,8 @@ class BaseService extends DBUtils {
             },
             async getPageAndCount() {
                 // 第一步:拼接SQL
-                let sql1 = this.listSql + (this.innerJoinFields.length > 0 ? "," : "") + this.innerJoinFields.join(",") + this.from + this.innerJoinStr + this.where + this.strWhere + this.orderByStr + ` limit ${(this.pageIndex - 1) * 10} , 10 `;
-                let sql2 = this.countSql + this.strWhere;
+                let sql1 = this.listSql + (this.innerJoinFields.length > 0 ? "," : "") + this.innerJoinFields.join(",") + this.from + this.innerJoinStr + this.where + this.strWhere + this.orderByStr + ` limit ${(this.pageIndex - 1) * 4} , 4 `;
+                let sql2 = this.countSql + (this.innerJoinFields.length > 0 ? "," : "") + this.innerJoinFields.join(",") + this.from + this.innerJoinStr + this.where + this.strWhere;
                 // 第二步:准备执行事务
                 let arr = [{
                     sql: sql1,
@@ -184,12 +188,15 @@ class BaseService extends DBUtils {
                     params: this.params
                 }];
                 //第三步:开始执行
+                console.log(sql1);
+                console.log(sql2);
                 let [listData, [{
                     total_count
                 }]] = await that.executeTransaction(arr);
                 return [listData, total_count];
             }
         }
+        console.log(obj);
         return obj;
     }
 }

@@ -26,6 +26,7 @@ class DBUtils {
      * @returns {Promise<Array | mysql.ResultSetHeader>} 返回SQL语句执行的结果
      */
     executeSql(sql, params = [], conn = null) {
+        console.log(sql);
         //如果你传了conn链接进来，我认为你要共享一个链接
         if (conn) {
             return new Promise((resolve, reject) => {
