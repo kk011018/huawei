@@ -7,6 +7,10 @@ import { Component, Input } from '@angular/core';
 })
 export class TopComponent {
 
+  isShow: boolean = true;
 
+  search() {
+    location.href = "/list"
+  }
 
 }

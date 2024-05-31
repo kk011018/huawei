@@ -21,6 +21,7 @@ import { Dialog2Component } from './component/dialog2/dialog2.component';
 import { PaginationModule } from 'ng-devui/pagination';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { InputNumberModule } from 'ng-devui';
+import { TimeAxisModule } from 'ng-devui/time-axis';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { InputNumberModule } from 'ng-devui';
     RadioModule,
     PaginationModule,
     InputNumberModule,
+    TimeAxisModule
   ],
   providers: [],
   bootstrap: [AppComponent]

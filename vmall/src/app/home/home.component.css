@@ -1,0 +1,14 @@
+.myhover:hover>img {
+  /* 放大0.8倍 */
+  transform: scale(1.2);
+}
+
+.myhover:hover>div {
+  /* 字体加粗 */
+  font-weight: bold;
+}
+
+
+.aaa:hover {
+  box-shadow: 0 0 10px 5px gray;
+}

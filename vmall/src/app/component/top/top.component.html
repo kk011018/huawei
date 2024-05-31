@@ -1,44 +1,53 @@
-<div class="big-box">
-  <div class="top-box clearfix">
-    <div class="nav-top-box container">
-      <div class="left-box">
-        <ul>
-          <li><a href="#">首页</a></li>
-          <li><a href="#">消费者业务网站</a></li>
-          <li><a href="#">优购码</a></li>
-          <li><a href="#">企业商用</a></li>
-          <li><a href="#">Select Region</a></li>
-          <li><a href="#">更多精彩<span class="iconfont icon-xiala-"></span></a></li>
-        </ul>
-      </div>
-      <div class="right-box">
-        <ul>
-          <li><a href="#">请登录</a></li>
-          <li><a href="#">注册</a></li>
-          <li><a href="#">我的订单</a></li>
-          <li><a href="#">客服<span class="iconfont icon-xiala-"></span></a></li>
-          <li><a href="#">网站导航<span class="iconfont icon-xiala-"></span></a></li>
-          <li><a href="#">手机版<span class="iconfont icon-xiala-"></span></a></li>
-          <li><a href="/shoppingCart"><span class="iconfont icon-gouwuche"></span>购物车(0)</a></li>
-        </ul>
-      </div>
+<div class="top-box bg-black">
+  <div class="container max-w-[1226px] m-auto  h-[36px] flex justify-between">
+    <div class="flex text-[12px] items-center text-gray-400">
+      <div class="mr-[6px] hover:cursor-pointer hover:text-white"><a href="#">首页</a></div>|
+      <div class="ml-[6px] mr-[6px] hover:cursor-pointer hover:text-white"><a href="#">消费者业务网站</a></div>|
+      <div class="ml-[6px] mr-[6px] hover:cursor-pointer hover:text-white"><a href="#">优购码</a></div>|
+      <div class="ml-[6px] mr-[6px] hover:cursor-pointer hover:text-white"><a href="#">企业商用</a></div>|
+      <div class="ml-[6px] mr-[6px] hover:cursor-pointer hover:text-white"><a href="#">Select Region</a></div>|
+      <div class="ml-[6px] hover:cursor-pointer hover:text-white"><a href="#">更多精彩<span
+            class="iconfont icon-xiala"></span></a></div>
     </div>
-    <div class="container menu-box">
-      <div class="log-box">
-        <img src="../../../assets/img/logo_app.png" alt="">
-      </div>
-      <div class="menu-center-box">
-        <ul>
-          <li><a href="#">华为</a></li>
-          <li><a href="#">鸿蒙智航</a></li>
-          <li><a href="#">华为首选</a></li>
-          <li><a href="#">生态周边</a></li>
-        </ul>
-      </div>
-      <div class="search-box">
-        <input type="text" placeholder="搜索商品">
-        <span class="iconfont icon-sousuo"></span>
-      </div>
+    <div class="flex text-[12px] items-center text-gray-400">
+      <div class="mr-[6px] hover:cursor-pointer hover:text-white"><a href="#">请登录</a></div>|
+      <div class="ml-[6px] mr-[6px] hover:cursor-pointer hover:text-white"><a href="#">注册</a></div>|
+      <div class="ml-[6px] mr-[6px] hover:cursor-pointer hover:text-white"><a href="#">我的订单</a></div>|
+      <div class="ml-[6px] mr-[6px] hover:cursor-pointer hover:text-white"><a href="#">客服</a></div>|
+      <div class="ml-[6px] mr-[6px] hover:cursor-pointer hover:text-white"><a href="#">网站导航</a></div>|
+      <div class="ml-[6px] mr-[6px] hover:cursor-pointer hover:text-white"><a href="#">手机版</a></div>|
+      <div class="ml-[6px] hover:cursor-pointer hover:text-white"><a href="/shoppingCart"><span
+            class="iconfont icon-gouwuche"></span>购物车(0)</a></div>
     </div>
+  </div>
+</div>
+
+
+<div *ngIf="isShow" class="h-[74px] flex justify-between container m-auto max-w-[1226px]">
+  <div class="flex">
+    <img class="h-[74px] mr-14" src="../../../assets/img/logo_app.png" alt="">
+    <div class="flex items-center justify-center">
+      <div class="mr-10 hover:cursor-pointer hover:text-red-600"><a href="#">华为</a></div>
+      <div class="mr-10 hover:cursor-pointer hover:text-red-600"><a href="#">鸿蒙智航</a></div>
+      <div class="mr-10 hover:cursor-pointer hover:text-red-600"><a href="#">华为首选</a></div>
+      <div class="mr-10 hover:cursor-pointer hover:text-red-600"><a href="#">生态周边</a></div>
+    </div>
+  </div>
+  <div (click)="isShow=!isShow" class="flex items-center justify-center">
+    <span class="iconfont icon-sousuo text-[24px] text-gray-400 hover:cursor-pointer"></span>
+  </div>
+</div>
+
+
+<div *ngIf="!isShow" class="h-[74px] flex justify-center container m-auto items-center max-w-[1226px]">
+  <div class="text-gray-500 bg-[#F9FAFB] h-[36px] w-[50%] flex items-center  pl-4 pr-4 rounded-3xl">
+    <!-- <div class="flex flex-1 items-center"> -->
+    <span class="iconfont icon-sousuo mr-4 w-[20px]"></span>
+    <div class="h-[36px] flex-1 overflow-auto flex items-center">
+      <input (keypress)="($event.which===13)?search():0" class="myInput" type="text" placeholder="搜索商品">
+    </div>
+    <!-- </div> -->
+    <span (click)="isShow=!isShow"
+      class="w-[30px] flex justify-center items-center text-[20px] hover:cursor-pointer">×</span>
   </div>
 </div>

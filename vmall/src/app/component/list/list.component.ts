@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 type response = {
   code: number,
@@ -23,6 +23,8 @@ export class ListComponent {
   Data: any = { listData: [] };
 
   obj: any = [];
+
+  @Input() data1: any = [];
 
   constructor(private http: HttpClient) {
 

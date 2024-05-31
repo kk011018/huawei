@@ -24,20 +24,48 @@
         <div class="w-[150px]">评论数</div>
         <div class="w-[30px]">价格</div>
         <div class="flex relative">
-          <input class="z-10 mx-2 w-[60px] border-0 outline-none bg-gray-100 border-gray-400 p-1 hover:outline-none"
+          <input [(ngModel)]="minPrice"
+            class="z-10 mx-2 w-[60px] border-0 outline-none bg-gray-100 border-gray-400 p-1 hover:outline-none"
             type="text">
           <span class="z-10">——</span>
-          <input class="z-10 mx-2 w-[60px] border-0 outline-none bg-gray-100 border-gray-400 p-1 hover:outline-none"
+          <input [(ngModel)]="maxPrice"
+            class="z-10 mx-2 w-[60px] border-0 outline-none bg-gray-100 border-gray-400 p-1 hover:outline-none"
             type="text">
           <div
             class=" border-2 w-[200px] h-[100px] opacity-0 hover:opacity-100 hover:shadow-2xl hover:bg-gray-50 absolute -top-5">
-            <button type="button" class="absolute bottom-3 left-5 w-[65px] border-0 rounded-[20px] h-[30px]">清除</button>
             <button type="button"
-              class="text-white absolute bottom-3 right-5 w-[65px] border-0 rounded-[20px] h-[30px] bg-red-500">确定</button>
+              class=" hover:cursor-pointer absolute bottom-3 left-5 w-[65px] border-0 rounded-[20px] h-[30px]">清除</button>
+            <button type="button" (click)="confirm()"
+              class="hover:cursor-pointer text-white absolute bottom-3 right-5 w-[65px] border-0 rounded-[20px] h-[30px] bg-red-500">确定</button>
           </div>
         </div>
       </div>
     </div>
-    <app-list></app-list>
+    <!-- <app-list></app-list> -->
+    <div class="list">
+      <div class="title-box">
+        <div class="title">手机</div>
+        <div class="link">更多&gt;</div>
+      </div>
+      <div class="detail-box">
+        <div routerLink="/detail/{{item.id}}" class="list-details" *ngFor="let item of Data.listData">
+          <div class="img-box text-center">
+            <img class="pt-6" src={{item.photo}} alt="">
+          </div>
+          <div class="text-box">
+            <div class="name">{{item.title}}</div>
+            <div class="tag">评论数：{{item.goods_spec}}</div>
+            <div class="price">￥{{item.spec}}</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <d-pagination (pageIndexChange)="pageIndexChange($event)" [size]="'sm'" [total]="Data.totalCount"
+          [(pageSize)]="pager.pageSize" [(pageIndex)]="pager.pageIndex" [canViewTotal]="true" [canChangePageSize]="true"
+          [maxItems]="5">
+        </d-pagination>
+      </div>
+    </div>
+
   </div>
   <app-bottom></app-bottom>

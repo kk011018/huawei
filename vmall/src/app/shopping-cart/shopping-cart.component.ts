@@ -14,6 +14,19 @@ export class ShoppingCartComponent {
   max = 1000;
   step = 1;
   value = 1;
+  
+  quanxuan = document.querySelector("#quanxuan")
+  xuanze = document.querySelectorAll(".xuanze")
+  zixuanxiang: any = document.getElementsByClassName("aaaa")
+
+  selectAll(e: any) {
+    console.log(e);
+    console.log(this.zixuanxiang);
+    for (let i = 0; i < this.zixuanxiang.length; i++) {
+      this.zixuanxiang[i].checked = e.target.checked;
+    }
+  }
+
 
   //小计
   xiaoji: number = 0;
@@ -36,10 +49,23 @@ export class ShoppingCartComponent {
     })
   }
 
+  shuliangjianyi(id: number) {
+    this.http.put(`http://localhost:3000/shoppingCartInfo/shuliangjianyi/${id}`, () => { }).subscribe((res) => {
+      this.getAllList();
+      location.reload();
+    })
+  }
+
+  shuliangjiayi(id: number) {
+    this.http.put(`http://localhost:3000/shoppingCartInfo/shuliangjiayi/${id}`, () => { }).subscribe((res) => {
+      this.getAllList();
+      location.reload();
+    })
+  }
+
   ngOnInit() {
     this.getAllList();
   }
-
 
 
 }

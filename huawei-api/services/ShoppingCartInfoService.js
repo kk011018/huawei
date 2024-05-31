@@ -8,6 +8,18 @@ class ShoppingCartInfoService extends BaseService {
         super();
         this.currentTable = this.tableMap.shopping_cart_info;
     }
+
+    //修改数量减一
+    async shuliangjianyi(id) {
+        let sql = `update ${this.currentTable} set shuliang=shuliang-1 where id=${id}`;
+        return this.executeSql(sql, id);
+    }
+
+    //修改数量加一
+    async shuliangjiayi(id) {
+        let sql = `update ${this.currentTable} set shuliang=shuliang+1 where id=${id}`;
+        return this.executeSql(sql, id);
+    }
 }
 
 module.exports = ShoppingCartInfoService;

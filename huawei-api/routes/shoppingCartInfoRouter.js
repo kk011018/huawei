@@ -25,3 +25,15 @@ router.post("/add", async (req, resp) => {
     let result = await ServiceFactory.createShoppingCartInfoService().add(shoppingCartInfo);
     resp.json(result)
 })
+
+router.put("/shuliangjianyi/:id", async (req, resp) => {
+    let id = req.params.id;
+    let result = await ServiceFactory.createShoppingCartInfoService().shuliangjianyi(id);
+    resp.json(result)
+})
+
+router.put("/shuliangjiayi/:id", async (req, resp) => {
+    let id = req.params.id;
+    let result = await ServiceFactory.createShoppingCartInfoService().shuliangjiayi(id);
+    resp.json(result)
+})

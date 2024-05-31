@@ -3,8 +3,8 @@
   <div class="w-auto bg-white p-2 mt-6 mb-6 flex justify-between text-[14px] text-gray-500">
     <div class="p-2 flex">
       <div class="w-[120px]">
-        <label for="quanxuan" class="flex items-center ">
-          <input type="radio" id="quanxuan">
+        <label for="quanxuan" class="flex items-center hover:cursor-pointer">
+          <input type="checkbox" (click)="selectAll($event)" class="hover:cursor-pointer" id="quanxuan">
           <span>全选</span>
         </label>
       </div>
@@ -22,8 +22,8 @@
   <div class="w-auto bg-white p-2 mt-6 mb-6 flex justify-between" *ngFor="let item of data">
     <div class="p-2 flex">
       <div class="w-[120px]">
-        <label for="{{item.id}}" class="flex items-center ">
-          <input type="radio" id="{{item.id}}">
+        <label for="{{item.id}}" class="flex items-center hover:cursor-pointer">
+          <input type="checkbox" class="hover:cursor-pointer aaaa" id="{{item.id}}">
           <img src="{{item.photo}}" alt="" class="w-[70px] h-[70px]">
         </label>
       </div>
@@ -33,14 +33,41 @@
     </div>
     <div class="p-2 flex">
       <div class="w-[120px]">￥{{item.spec}}</div>
-      <div class="w-[120px]">
-        <d-input-number [(ngModel)]="shuliang" class="input-number" [autoFocus]="true"></d-input-number>
+      <div class="w-[120px] flex">
+        <!-- <d-input-number [(ngModel)]="shuliang" class="input-number" [autoFocus]="true"></d-input-number> -->
+        <div (click)="(item.shuliang>1)?shuliangjianyi(item.id):''"
+          class="w-[20px] h-[20px] border text-center border-gray-400 border-solid hover:cursor-pointer">-</div>
+        <div class="w-[60px] text-center">{{item.shuliang}}</div>
+        <div (click)="shuliangjiayi(item.id)"
+          class="w-[20px] h-[20px] border text-center border-gray-400 border-solid hover:cursor-pointer">
+          +</div>
       </div>
-      <div class="w-[120px]">{{item.spec * shuliang}}</div>
+      <div class="w-[120px]">{{item.spec * item.shuliang}}</div>
       <div class="w-[120px]">
         <button type="button" (click)="deleteById(item.id)"
           class="bg-white border border-solid border-1 rounded-lg pl-2 pr-2 pt-1 pb-1 hover:cursor-pointer">删除</button>
       </div>
+    </div>
+  </div>
+  <div class="h-[50px] w-auto bg-white mt-6 mb-6 flex items-center justify-between text-[14px] text-black">
+    <div class="p-2 flex">
+      <div class="w-[80px]">
+        <label for="quanxuan" class="flex items-center hover:cursor-pointer">
+          <input type="checkbox" (click)="selectAll($event)" id="quanxuan" class="hover:cursor-pointer">
+          <span>全选</span>
+        </label>
+      </div>
+      <div class="w-[120px] hover:cursor-pointer">
+        删除
+      </div>
+    </div>
+    <div class="flex">
+      <div class="flex flex-col  justify-center items-end">
+        <div class="text-[12px]">总计:<span class="text-[16px] text-red-600">￥99999</span></div>
+        <div class="text-[12px] text-gray-600">已选<span class="text-red-600 text-[14px]">1</span>件商品</div>
+      </div>
+      <div class="bg-red-600 hover:cursor-pointer text-white h-[50px] w-[150px] justify-center flex items-center ml-4">
+        立即结算</div>
     </div>
   </div>
 </div>
