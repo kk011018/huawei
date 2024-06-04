@@ -1,0 +1,17 @@
+a {
+  all: unset;
+}
+
+.hengxian {
+  position: relative;
+}
+
+.yuandian1 {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: red;
+  position: absolute;
+  left: -5px;
+  top: -5px;
+}

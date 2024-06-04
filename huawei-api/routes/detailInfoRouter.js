@@ -26,5 +26,14 @@ router.get("/getListByPage/:pageIndex", async (req, resp) => {
     resp.json(pageList)
 })
 
+router.get("/getListByPageOrderByprice/:pageIndex", async (req, resp) => {
+    let pageIndex = req.params.pageIndex;
+    let pageList = await ServiceFactory.createDetailInfoService().getListByPageOrderByprice(pageIndex)
+    // resp.json(new ResultJson(true, "获取数据成功", pageList))
+    resp.json(pageList)
+})
+
+
+
 
 module.exports = router;

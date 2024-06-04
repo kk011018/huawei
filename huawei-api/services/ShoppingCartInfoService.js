@@ -20,6 +20,12 @@ class ShoppingCartInfoService extends BaseService {
         let sql = `update ${this.currentTable} set shuliang=shuliang+1 where id=${id}`;
         return this.executeSql(sql, id);
     }
+
+    //清空数据
+    async clear() {
+        let sql = `update ${this.currentTable} set is_del=1`
+        return this.executeSql(sql);
+    }
 }
 
 module.exports = ShoppingCartInfoService;

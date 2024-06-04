@@ -22,6 +22,14 @@ class DetailInfoService extends BaseService {
             .getPageAndCount();
         return new PageList(pageIndex, total_count, listData);
     }
+
+    async getListByPageOrderByprice(pageIndex) {
+        let [listData, total_count] = await this.createQuery()
+            .setPageIndex(pageIndex)
+            .orderBy("spec", "desc")
+            .getPageAndCount();
+        return new PageList(pageIndex, total_count, listData);
+    }
 }
 
 

@@ -22,6 +22,10 @@ import { PaginationModule } from 'ng-devui/pagination';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { InputNumberModule } from 'ng-devui';
 import { TimeAxisModule } from 'ng-devui/time-axis';
+import { AddressComponent } from './component/address/address.component';
+import { FormModule } from 'ng-devui/form';
+import { Dialog3Component } from './component/dialog3/dialog3.component';
+import { TooltipModule } from 'ng-devui/tooltip';
 
 @NgModule({
   declarations: [
@@ -36,6 +40,8 @@ import { TimeAxisModule } from 'ng-devui/time-axis';
     DialogComponent,
     Dialog2Component,
     ShoppingCartComponent,
+    AddressComponent,
+    Dialog3Component,
   ],
   imports: [
     BrowserModule,
@@ -49,7 +55,9 @@ import { TimeAxisModule } from 'ng-devui/time-axis';
     RadioModule,
     PaginationModule,
     InputNumberModule,
-    TimeAxisModule
+    TimeAxisModule,
+    FormModule,
+    TooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

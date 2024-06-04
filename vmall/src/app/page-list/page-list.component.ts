@@ -50,6 +50,13 @@ export class PageListComponent {
     })
   }
 
+  getListByPageOrderByprice() {
+    this.http.get(`http://localhost:3000/detailInfo/getListByPageOrderByprice/${this.pager.pageIndex}`).subscribe((res) => {
+      console.log(res);
+      this.Data = res;
+    })
+  }
+
   ngOnInit() {
     this.getAllList();
   }

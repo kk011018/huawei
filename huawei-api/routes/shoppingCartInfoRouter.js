@@ -37,3 +37,9 @@ router.put("/shuliangjiayi/:id", async (req, resp) => {
     let result = await ServiceFactory.createShoppingCartInfoService().shuliangjiayi(id);
     resp.json(result)
 })
+
+router.put("/clear", async (req, resp) => {
+    let id = req.params.id;
+    let result = await ServiceFactory.createShoppingCartInfoService().clear();
+    resp.json(result)
+})

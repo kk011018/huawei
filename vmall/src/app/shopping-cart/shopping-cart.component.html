@@ -1,74 +1,195 @@
-<app-top></app-top>
-<div class="max-w-[1226px] m-auto">
-  <div class="w-auto bg-white p-2 mt-6 mb-6 flex justify-between text-[14px] text-gray-500">
-    <div class="p-2 flex">
-      <div class="w-[120px]">
-        <label for="quanxuan" class="flex items-center hover:cursor-pointer">
-          <input type="checkbox" (click)="selectAll($event)" class="hover:cursor-pointer" id="quanxuan">
-          <span>全选</span>
-        </label>
-      </div>
-      <div class="w-[120px]">
-        商品
-      </div>
+<div class="top-box bg-gray-100">
+  <div class="container max-w-[1226px] m-auto  h-[36px] flex justify-between">
+    <div class="flex text-[12px] items-center text-gray-400">
+      <div class="mr-[6px] hover:cursor-pointer hover:text-white"><a href="#">首页</a></div>|
+      <div class="ml-[6px] mr-[6px] hover:cursor-pointer hover:text-white"><a href="#">消费者业务网站</a></div>|
+      <div class="ml-[6px] mr-[6px] hover:cursor-pointer hover:text-white"><a href="#">优购码</a></div>|
+      <div class="ml-[6px] mr-[6px] hover:cursor-pointer hover:text-white"><a href="#">企业商用</a></div>|
+      <div class="ml-[6px] mr-[6px] hover:cursor-pointer hover:text-white"><a href="#">Select Region</a></div>|
+      <div class="ml-[6px] hover:cursor-pointer hover:text-white"><a href="#">更多精彩<span
+            class="iconfont icon-xiala"></span></a></div>
     </div>
-    <div class="p-2 flex">
-      <div class="w-[120px]">单价</div>
-      <div class="w-[120px]">数量</div>
-      <div class="w-[120px]">小计</div>
-      <div class="w-[120px]">操作</div>
-    </div>
-  </div>
-  <div class="w-auto bg-white p-2 mt-6 mb-6 flex justify-between" *ngFor="let item of data">
-    <div class="p-2 flex">
-      <div class="w-[120px]">
-        <label for="{{item.id}}" class="flex items-center hover:cursor-pointer">
-          <input type="checkbox" class="hover:cursor-pointer aaaa" id="{{item.id}}">
-          <img src="{{item.photo}}" alt="" class="w-[70px] h-[70px]">
-        </label>
-      </div>
-      <div class="w-[300px]">
-        {{item.shangpin}}
-      </div>
-    </div>
-    <div class="p-2 flex">
-      <div class="w-[120px]">￥{{item.spec}}</div>
-      <div class="w-[120px] flex">
-        <!-- <d-input-number [(ngModel)]="shuliang" class="input-number" [autoFocus]="true"></d-input-number> -->
-        <div (click)="(item.shuliang>1)?shuliangjianyi(item.id):''"
-          class="w-[20px] h-[20px] border text-center border-gray-400 border-solid hover:cursor-pointer">-</div>
-        <div class="w-[60px] text-center">{{item.shuliang}}</div>
-        <div (click)="shuliangjiayi(item.id)"
-          class="w-[20px] h-[20px] border text-center border-gray-400 border-solid hover:cursor-pointer">
-          +</div>
-      </div>
-      <div class="w-[120px]">{{item.spec * item.shuliang}}</div>
-      <div class="w-[120px]">
-        <button type="button" (click)="deleteById(item.id)"
-          class="bg-white border border-solid border-1 rounded-lg pl-2 pr-2 pt-1 pb-1 hover:cursor-pointer">删除</button>
-      </div>
+    <div class="flex text-[12px] items-center text-gray-400">
+      <div class="mr-[6px] hover:cursor-pointer hover:text-white"><a href="#">请登录</a></div>|
+      <div class="ml-[6px] mr-[6px] hover:cursor-pointer hover:text-white"><a href="#">注册</a></div>|
+      <div class="ml-[6px] mr-[6px] hover:cursor-pointer hover:text-white"><a href="#">我的订单</a></div>|
+      <div class="ml-[6px] mr-[6px] hover:cursor-pointer hover:text-white"><a href="#">客服</a></div>|
+      <div class="ml-[6px] mr-[6px] hover:cursor-pointer hover:text-white"><a href="#">网站导航</a></div>|
+      <div class="ml-[6px] mr-[6px] hover:cursor-pointer hover:text-white"><a href="#">手机版</a></div>|
+      <div class="ml-[6px] hover:cursor-pointer hover:text-white"><a href="/shoppingCart"><span
+            class="iconfont icon-gouwuche"></span>购物车(0)</a></div>
     </div>
   </div>
-  <div class="h-[50px] w-auto bg-white mt-6 mb-6 flex items-center justify-between text-[14px] text-black">
-    <div class="p-2 flex">
-      <div class="w-[80px]">
-        <label for="quanxuan" class="flex items-center hover:cursor-pointer">
-          <input type="checkbox" (click)="selectAll($event)" id="quanxuan" class="hover:cursor-pointer">
-          <span>全选</span>
-        </label>
-      </div>
-      <div class="w-[120px] hover:cursor-pointer">
-        删除
-      </div>
-    </div>
+</div>
+
+<div class="bg-white">
+  <div class="h-[74px] bg-white flex justify-between container m-auto max-w-[1226px]">
     <div class="flex">
-      <div class="flex flex-col  justify-center items-end">
-        <div class="text-[12px]">总计:<span class="text-[16px] text-red-600">￥99999</span></div>
-        <div class="text-[12px] text-gray-600">已选<span class="text-red-600 text-[14px]">1</span>件商品</div>
+      <img class="h-[74px] mr-14" src="../../../assets/img/logo_app.png" alt="">
+      <div class="flex items-center justify-center">
+        <div class="text-[24px]">我的购物车</div>
       </div>
-      <div class="bg-red-600 hover:cursor-pointer text-white h-[50px] w-[150px] justify-center flex items-center ml-4">
-        立即结算</div>
+    </div>
+    <div
+      class="border-t-2 border-b-0 border-l-0 border-r-0 border-gray-500 border-solid h-[0.5px] mt-8 mr-12 w-[300px] relative">
+      <div class="absolute top-[-4px] left-[-4px] rounded-[50%] w-[8px] h-[8px] bg-white z-50"></div>
+      <div class="absolute top-[-8px] left-[-8px] rounded-[50%] w-[16px] h-[16px] bg-gray-600"></div>
+      <div class="absolute top-[-4px] left-[146px] rounded-[50%] w-[8px] h-[8px] bg-gray-600"></div>
+      <div class="absolute top-[-4px] left-[296px] rounded-[50%] w-[8px] h-[8px] bg-gray-600"></div>
+      <div class="absolute top-[10px] left-[-35px] text-[14px]">我的购物车</div>
+      <div class="absolute top-[10px] left-[107px] text-[14px]">填写核对订单</div>
+      <div class="absolute top-[10px] left-[200px] text-[14px] translate-x-[58px]">填写核对订单</div>
     </div>
   </div>
+</div>
+
+
+<div class="max-w-[1226px] m-auto">
+  <div *ngIf="(data.length==0)">
+    <div class="w-auto bg-white p-2 mt-6 mb-6 h-[450px] flex flex-col justify-center items-center">
+      <span class="iconfont icon-konggouwuche text-[60px] text-gray-600"></span>
+      <span class="text-gray-600 text-[14px] font-bold mt-6">您的购物车里什么也没有哦~</span>
+      <div routerLink="/home"
+        class="hover:cursor-pointer bg-red-600 w-[130px] h-[40px] text-white mt-2 flex justify-center items-center">
+        <span>去逛逛</span>
+      </div>
+    </div>
+    <div class="mb-4">
+      <span class="text-[20px]">热销推荐</span>
+      <div class="w-auto bg-white p-2 mt-2 mb-6 grid grid-cols-5">
+        <div routerLink="/detail/1" class="flex flex-col justify-center items-center">
+          <img src="http://localhost:3000/public/img/800_800_07AD2F649CFF4C53E60306E78D83D042mp.png"
+            class="w-[134px] h-[134px]" alt="">
+          <span class="text-gray-600 mt-2 mb-6">Huawei mate 11</span>
+          <span class="text-[14px] text-gray-700">￥4999</span>
+        </div>
+        <div routerLink="/detail/5" class="flex flex-col justify-center items-center">
+          <img src="http://localhost:3000/public/img/800_800_F6AF888F46C69F26458C9764BF14EB88mp.png"
+            class="w-[134px] h-[134px]" alt="">
+          <span class="text-gray-600 mt-2 mb-6">Huawei p60</span>
+          <span class="text-[14px] text-gray-700">￥5999</span>
+        </div>
+        <div routerLink="/detail/4" class="flex flex-col justify-center items-center">
+          <img src="http://localhost:3000/public/img/800_800_E5A4EACD2293A56B6A5FC3825C0B90AFmp.png"
+            class="w-[134px] h-[134px]" alt="">
+          <span class="text-gray-600 mt-2 mb-6">Nove 11 SE</span>
+          <span class="text-[14px] text-gray-700">￥6999</span>
+        </div>
+        <div routerLink="/detail/3" class="flex flex-col justify-center items-center">
+          <img src="http://localhost:3000/public/img/800_800_788463DCA4470012606425D655B59B5Cmp.png"
+            class="w-[134px] h-[134px]" alt="">
+          <span class="text-gray-600 mt-2 mb-6">Mate X5</span>
+          <span class="text-[14px] text-gray-700">￥7999</span>
+        </div>
+        <div routerLink="/detail/2" class="flex flex-col justify-center items-center">
+          <img src="http://localhost:3000/public/img/800_800_326614F60FB96289584CA7B9E4AE7CB9mp.png"
+            class="w-[134px] h-[134px]" alt="">
+          <span class="text-gray-600 mt-2 mb-6">Nove 12</span>
+          <span class="text-[14px] text-gray-700">￥8999</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!(data.length==0)">
+    <div (click)="openstandardDialog()" class="w-auto bg-white p-2 mt-6 mb-6 flex justify-between">
+      <div class="">
+        <div class="text-[14px]">
+          <span>上海市</span>
+          <span>浦东新区</span>
+          <span>金桥镇</span>
+        </div>
+        <div class="text-[18px] pt-2 pb-2">
+          <span>金沪路1218弄朴臣公寓2号楼8310</span>
+        </div>
+        <div class="text-[14px]">
+          <span class="pr-2">谢坤</span>
+          <span>{{phone("15623068116")}}</span>
+        </div>
+      </div>
+      <div class="flex items-center pr-3">
+        <span class="iconfont icon-youjiantou"></span>
+      </div>
+    </div>
+    <div class="w-auto bg-white p-2 mt-6 mb-6 flex justify-between text-[14px] text-gray-500">
+      <div class="p-2 flex">
+        <div class="w-[120px]">
+          <label for="quanxuan" class="flex items-center hover:cursor-pointer">
+            <input [(ngModel)]="chickedAll" (click)="selectAll()" type="checkbox" class="hover:cursor-pointer"
+              id="quanxuan">
+            <span>全选</span>
+          </label>
+        </div>
+        <div class="w-[120px]">
+          商品
+        </div>
+      </div>
+      <div class="p-2 flex">
+        <div class="w-[120px]">单价</div>
+        <div class="w-[120px]">数量</div>
+        <div class="w-[120px]">小计</div>
+        <div class="w-[120px]">操作</div>
+      </div>
+    </div>
+
+    <div class="w-auto bg-white p-2 mt-6 mb-6 flex justify-between" *ngFor="let item of data;let i = index;">
+      <div class="p-2 flex">
+        <div class="w-[120px]">
+          <label for="{{item.id}}" class="flex items-center hover:cursor-pointer">
+            <input [(ngModel)]="data[i].ischick" (click)="selectOne(i)" type="checkbox"
+              class="hover:cursor-pointer aaaa" id="{{item.id}}">
+            <img src="{{item.photo}}" alt="" class="w-[70px] h-[70px]">
+          </label>
+        </div>
+        <div class="w-[300px]">
+          {{item.shangpin}}
+        </div>
+      </div>
+      <div class="p-2 flex">
+        <div class="w-[120px]">￥{{item.spec}}</div>
+        <div class="w-[120px] flex">
+          <div (click)="(item.shuliang>1)?shuliangjianyi(item.id):''"
+            class="w-[20px] h-[20px] border text-center border-gray-400 border-solid hover:cursor-pointer">-</div>
+          <div class="w-[60px] text-center">{{item.shuliang}}</div>
+          <div (click)="shuliangjiayi(item.id)"
+            class="w-[20px] h-[20px] border text-center border-gray-400 border-solid hover:cursor-pointer">
+            +</div>
+        </div>
+        <div class="w-[120px]">{{item.spec * item.shuliang}}</div>
+        <div class="w-[120px]">
+          <button type="button" (click)="deleteById(item.id)"
+            class="bg-white border border-solid border-1 rounded-lg pl-2 pr-2 pt-1 pb-1 hover:cursor-pointer">删除</button>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="h-[50px] w-auto bg-white mt-6 mb-6 flex items-center justify-between text-[14px] text-black">
+      <div class="p-2 flex">
+        <div class="w-[80px]">
+          <label for="quanxuan" class="flex items-center hover:cursor-pointer">
+            <input [(ngModel)]="chickedAll" (click)="selectAll()" type="checkbox" id="quanxuan"
+              class="hover:cursor-pointer">
+            <span>全选</span>
+          </label>
+        </div>
+        <div (click)="deleteByIdAll()" class="w-[120px] hover:cursor-pointer">
+          删除
+        </div>
+      </div>
+      <div class="flex">
+        <div class="flex flex-col  justify-center items-end">
+          <div class="text-[12px]">总计:<span class="text-[16px] text-red-600">￥{{zongjia}}</span></div>
+          <div class="text-[12px] text-gray-600">已选<span class="text-red-600 text-[14px]">{{zongjianshu}}</span>件商品
+          </div>
+        </div>
+        <div dTooltip [content]="'请选择结算商品'" (click)="openDialog1()"
+          class="bg-red-600 hover:cursor-pointer text-white h-[50px] w-[150px] justify-center flex items-center ml-4">
+          立即结算</div>
+      </div>
+    </div>
+  </div>
+
+
 </div>
 <app-bottom></app-bottom>
