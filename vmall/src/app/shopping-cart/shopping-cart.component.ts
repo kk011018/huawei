@@ -10,7 +10,14 @@ import { Dialog3Component } from '../component/dialog3/dialog3.component';
   styleUrl: './shopping-cart.component.css',
   providers: [DialogService]
 })
-export class ShoppingCartComponent {
+export class ShoppingCartComponent implements OnInit {
+
+  public taskData: any;
+
+  public getTaskData(event: any) {
+    this.taskData = event
+    console.log(this.taskData, "aaaaaa");
+  }
 
   data: any = [];
   shuliang: number = 1;
@@ -25,6 +32,10 @@ export class ShoppingCartComponent {
   zongjia: number = 0;
   //总件数
   zongjianshu: number = 0;
+  //购物车总数量
+  zongshuliang: number = 0;
+  //核对订单
+  heduidingdan: boolean = false;
 
 
   config1 = {
@@ -63,6 +74,7 @@ export class ShoppingCartComponent {
       });
       console.log(results.modalContentInstance);
       this.deleteByIdAll()
+      this.heduidingdan = true;
     }
   }
 
@@ -155,16 +167,16 @@ export class ShoppingCartComponent {
     });
   }
 
-
-
-
   getAllList() {
     this.http.get(`http://localhost:3000/shoppingCartInfo/getAllList`).subscribe((res) => {
       console.log(res);
+      let zongshuliang = 0;
       this.data = (res as []).map((item: any, index: number) => {
         item.ischick = this.data[index]?.ischick;
-        return item;
+        zongshuliang += item.shuliang;
+        return item; 
       })
+      this.zongshuliang = zongshuliang;
       this.updateZongjia()
       this.updateZongjianshu()
     })
@@ -196,13 +208,6 @@ export class ShoppingCartComponent {
     this.getAllList();
   }
 
-
-  // clear() {
-  //   this.http.put(`http://localhost:3000/shoppingCartInfo/clear`, () => { }).subscribe((res) => {
-  //     this.getAllList();
-  //     // location.reload();
-  //   })
-  // }
 
   phone(num: string) {
     let str = num.substring(0, 3) + "****" + num.substring(7, 11);

@@ -109,6 +109,8 @@ export class DetailComponent {
           disabled: false,
           handler: ($event: Event) => {
             results.modalInstance.hide();
+            //刷新页面
+            window.location.reload();
           },
         },
         {

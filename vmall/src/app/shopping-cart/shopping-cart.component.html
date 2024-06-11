@@ -17,7 +17,7 @@
       <div class="ml-[6px] mr-[6px] hover:cursor-pointer hover:text-white"><a href="#">网站导航</a></div>|
       <div class="ml-[6px] mr-[6px] hover:cursor-pointer hover:text-white"><a href="#">手机版</a></div>|
       <div class="ml-[6px] hover:cursor-pointer hover:text-white"><a href="/shoppingCart"><span
-            class="iconfont icon-gouwuche"></span>购物车(0)</a></div>
+            class="iconfont icon-gouwuche"></span>购物车({{zongshuliang}})</a></div>
     </div>
   </div>
 </div>
@@ -33,9 +33,13 @@
     <div
       class="border-t-2 border-b-0 border-l-0 border-r-0 border-gray-500 border-solid h-[0.5px] mt-8 mr-12 w-[300px] relative">
       <div class="absolute top-[-4px] left-[-4px] rounded-[50%] w-[8px] h-[8px] bg-white z-50"></div>
+      <!-- <div class="absolute top-[-4px] left-[-4px] rounded-[50%] w-[8px] h-[8px] bg-white z-50"></div> -->
+
       <div class="absolute top-[-8px] left-[-8px] rounded-[50%] w-[16px] h-[16px] bg-gray-600"></div>
-      <div class="absolute top-[-4px] left-[146px] rounded-[50%] w-[8px] h-[8px] bg-gray-600"></div>
+      <div class="absolute top-[-8px] left-[146px] rounded-[50%] w-[16px] h-[16px] bg-gray-600"></div>
+      <!-- <div class="absolute top-[-4px] left-[146px] rounded-[50%] w-[8px] h-[8px] bg-gray-600"></div> -->
       <div class="absolute top-[-4px] left-[296px] rounded-[50%] w-[8px] h-[8px] bg-gray-600"></div>
+
       <div class="absolute top-[10px] left-[-35px] text-[14px]">我的购物车</div>
       <div class="absolute top-[10px] left-[107px] text-[14px]">填写核对订单</div>
       <div class="absolute top-[10px] left-[200px] text-[14px] translate-x-[58px]">填写核对订单</div>
@@ -92,7 +96,8 @@
   </div>
 
   <div *ngIf="!(data.length==0)">
-    <div (click)="openstandardDialog()" class="w-auto bg-white p-2 mt-6 mb-6 flex justify-between">
+    <div (click)="openstandardDialog()" (taskData)="getTaskData($event)" *ngIf="heduidingdan"
+      class="w-auto bg-white p-2 mt-6 mb-6 flex justify-between">
       <div class="">
         <div class="text-[14px]">
           <span>上海市</span>
@@ -162,7 +167,6 @@
         </div>
       </div>
     </div>
-
 
     <div class="h-[50px] w-auto bg-white mt-6 mb-6 flex items-center justify-between text-[14px] text-black">
       <div class="p-2 flex">
